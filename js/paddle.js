@@ -27,9 +27,15 @@ Paddle.prototype.resetPosition = function(){
 };
 
 Paddle.prototype.moveDown = function(){
-	this.y += this.speed;
+	var nextY = this.y + this.speed;
+	if(nextY + this.viewHeight <= GAMEHEIGHT){
+		this.y = nextY;
+	}
 };
 
 Paddle.prototype.moveUp = function(){
-	this.y -= this.speed;
+	var nextY = this.y - this.speed;
+	if(nextY >= 0){
+		this.y = nextY;
+	}
 };
